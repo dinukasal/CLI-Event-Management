@@ -1,10 +1,10 @@
 #include "DataHandler.h"
 #include "Users.h"
 #include <conio.h>
-#include "InterfaceHandler.h"
+#include "IOHandler.h"
 #include "EventHandler.h"
 #include "HallHandler.h"
-#include "Files.h"
+#include "Database.h"
 
 using namespace std;
 
@@ -15,7 +15,7 @@ int main() {
 	HallHandler hallhandler;
 	TicketsHandler tickets;
 	EventHandler eventhandler = EventHandler(&hallhandler,&tickets);
-	InterfaceHandler im = InterfaceHandler(&users, &eventhandler, &hallhandler,&tickets);
+	IOHandler io = IOHandler(&users, &eventhandler, &hallhandler,&tickets);
 
 	int dataCount = 0;
 
@@ -28,10 +28,8 @@ int main() {
 	dataset = datahandler.fetchData(customers_file, &dataCount);
 	users.getCustomers(dataset, dataCount);
 
-	im.displayMenu(0);	// menus from the begining
-
+	io.displayMenu(0);	
 	cin.get();
-
 	return 0;
 
 }

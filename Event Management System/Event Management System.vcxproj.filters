@@ -18,9 +18,6 @@
     <ClInclude Include="Users.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Files.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="HallHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -33,7 +30,10 @@
     <ClInclude Include="EventHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InterfaceHandler.h">
+    <ClInclude Include="Database.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IOHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,24 +50,18 @@
     <ClCompile Include="HallHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InterfaceHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TicketHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UserHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="IOHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="reservations.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="sold_tickets.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="HallPlan.txt">
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="admins.txt">
@@ -77,6 +71,12 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="eventlist.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="hallstructure.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="tickets_sold.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

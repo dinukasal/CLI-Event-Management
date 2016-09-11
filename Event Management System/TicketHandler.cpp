@@ -27,7 +27,7 @@ void TicketsHandler::printVector(vector <vector<int>> data) {
 void TicketsHandler::printSoldTickets()
 {
 	cout << endl << "Sold Tickets" << endl;
-	cout << "-------------" << endl;
+	cout         << "============" << endl;
 	for (int i = 0; i < ticketsvector.size(); i++)
 	{
 		cout << "Event " << i +1<< " >> Sold Count: "<< ticketsvector[i]<<endl;
@@ -43,7 +43,6 @@ void TicketsHandler::removeTicket(int eventNumber)
 	{
 		data += to_string(i + 1) + "-" + to_string(ticketsvector[i])+"\n";
 	}
-	cout << "Writing data to ticket file\n" << data << endl;
 	datahandler.writeFile(ticket_file, data);
 	reloadTickets();
 }
@@ -71,7 +70,7 @@ void TicketsHandler::addTicket(int eventNo)
 void TicketsHandler::printAvailableTickets()
 {
 	cout << endl << "Available Tickets" << endl;
-	cout <<         "-----------------" << endl;
+	cout <<         "=================" << endl;
 	for (int i = 0; i < ticketsvector.size(); i++)
 	{
 		cout << "Event " << i + 1 << "  " << ticketsvector[i]<<" sold" << endl;
@@ -87,7 +86,6 @@ void TicketsHandler::buyTicket(int eventNo,int amount)
 	{
 		data += to_string(i + 1) + "-" + to_string(ticketsvector[i]) + "\n";
 	}
-	cout << "Writing data to ticket file\n" << data << endl;
 	datahandler.writeFile(ticket_file, data);
 	reloadTickets();
 }

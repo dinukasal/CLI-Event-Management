@@ -45,10 +45,7 @@ bool UserHandler::checkCustomer(string username, string password)
 bool UserHandler::checkUser(string username,string password,int userType) {
 	if (userType == 1) {	//user type admin
 		for (int i = 0;i < adminCount;i++) {
-			//cout << (admin[i].name==username) << endl;
 			if (adminsarray[i].name == username && adminsarray[i].password == password) {
-				//cout << password << endl;
-
 				return true;
 			}
 		}

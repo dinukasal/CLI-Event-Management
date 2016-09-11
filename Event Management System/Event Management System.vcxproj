@@ -145,9 +145,9 @@
   <ItemGroup>
     <ClInclude Include="DataHandler.h" />
     <ClInclude Include="EventHandler.h" />
-    <ClInclude Include="Files.h" />
+    <ClInclude Include="Database.h" />
     <ClInclude Include="HallHandler.h" />
-    <ClInclude Include="InterfaceHandler.h" />
+    <ClInclude Include="IOHandler.h" />
     <ClInclude Include="TicketHandler.h" />
     <ClInclude Include="Users.h" />
   </ItemGroup>
@@ -155,16 +155,16 @@
     <ClCompile Include="DataHandler.cpp" />
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="HallHandler.cpp" />
-    <ClCompile Include="InterfaceHandler.cpp" />
+    <ClCompile Include="IOHandler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TicketHandler.cpp" />
     <ClCompile Include="UserHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="eventlist.txt" />
-    <Text Include="HallPlan.txt" />
+    <Text Include="hallstructure.txt" />
     <Text Include="reservations.txt" />
-    <Text Include="sold_tickets.txt" />
+    <Text Include="tickets_sold.txt" />
     <Text Include="admins.txt" />
     <Text Include="customers.txt" />
   </ItemGroup>

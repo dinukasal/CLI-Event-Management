@@ -13,15 +13,12 @@ string* DataHandler::fetchData(string fileName,int *count){
 		string line;
 		int counter=0;
 		while (getline(fileInput, line)) {
-			//cout << line << '\n';
-			//if ((unsigned int)line[0] == 0 || (line[0] == '/' && line[1] == '/') ) {
 			if ((line[0] == '/' && line[1] == '/')) {
 			}
 			else {
 				data[counter++] = line;
 			}
 		}
-		//cout << "inserted " << data.size() << " lines to data" << endl;
 		fileInput.close();
 		*count = counter;
 		
@@ -141,22 +138,20 @@ void DataHandler::writeline(string filename, int lineno, string data)
 	fstream file;
 	file.open(filename, ios::in);
 	string line;
-	vector <string> buffer;
+	vector <string> lines;
 
 	int counter = 0;
 
 	if (file.is_open()) {
 		while (getline(file, line)) {
-			buffer.push_back(line);
+			lines.push_back(line);
 			if (line != "") {
 				
 				//cout << line << endl;
 			}	
 		}
 
-		//cout << data << endl;
-
-		file.close();	//closing the opened file for reading ****
+		file.close();	//closing the opened file for reading
 
 		ofstream file;
 		file.open(filename, ios::out );	//opening file in out mode clears the file
@@ -165,22 +160,22 @@ void DataHandler::writeline(string filename, int lineno, string data)
 		file.open(filename, ios::out| ios::app);
 		//file.write(line.c_str(),line.length());
 		
-		if (buffer.size()-1 >= lineno) {
-			buffer[lineno] = data;
+		if (lines.size()-1 >= lineno) {
+			lines[lineno] = data;
 
 		}else {
-			for (int i = buffer.size()-1; i < lineno; i++) {
+			for (int i = lines.size()-1; i < lineno; i++) {
 				if (i == (lineno-1)) {
-					buffer.push_back(data);
+					lines.push_back(data);
 				}
 				else {
-					buffer.push_back("");
+					lines.push_back("");
 				}
 				
 			}
 		}
-		for (int i = 0; i < buffer.size(); i++) {
-			file << buffer[i] << endl;
+		for (int i = 0; i < lines.size(); i++) {
+			file << lines[i] << endl;
 		}
 
 		//file <<data << endl;
