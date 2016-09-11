@@ -143,9 +143,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\chathurandi%27s friend\CLI Event Management\Event Management System\Database.h" />
     <ClInclude Include="DataHandler.h" />
     <ClInclude Include="EventHandler.h" />
-    <ClInclude Include="Database.h" />
     <ClInclude Include="HallHandler.h" />
     <ClInclude Include="IOHandler.h" />
     <ClInclude Include="TicketHandler.h" />
@@ -164,7 +164,7 @@
     <Text Include="eventlist.txt" />
     <Text Include="hallstructure.txt" />
     <Text Include="reservations.txt" />
-    <Text Include="tickets_sold.txt" />
+    <Text Include="tickets_booked.txt" />
     <Text Include="admins.txt" />
     <Text Include="customers.txt" />
   </ItemGroup>

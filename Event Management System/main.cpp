@@ -10,10 +10,10 @@ using namespace std;
 
 int main() {
 	DataHandler datahandler;
-	UserHandler users;
 	string *dataset;
 	HallHandler hallhandler;
-	TicketsHandler tickets;
+	UserHandler users;
+	TicketsHandler tickets=TicketsHandler(&users);
 	EventHandler eventhandler = EventHandler(&hallhandler,&tickets);
 	IOHandler io = IOHandler(&users, &eventhandler, &hallhandler,&tickets);
 

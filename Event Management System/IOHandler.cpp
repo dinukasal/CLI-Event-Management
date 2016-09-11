@@ -145,12 +145,10 @@ void IOHandler::displayAdminMenu()
 		if (choice == '1') {
 			cout << "Enter Event Name- ";
 			string name;
-			//cin.get();
 			getline(cin, name);
 
 			string date;
 			cout << "Enter date - ";
-			//cin.get();
 			getline(cin, date);
 
 			string time;
@@ -278,18 +276,33 @@ void IOHandler::displayCustomerMenu()
 		cout << endl <<"Customer Dashboard" << endl;
 		cout <<        "==================" << endl;
 		cout << "1- Buy a Ticket" << endl;
-		cout << "2- View Hall Plan and reservations" << endl;
-		cout << "3- Make a Hall reservation" << endl;
+		cout << "2- Cancel a Ticket" << endl;
+		cout << "3- View Hall Plan and reservations" << endl;
+		cout << "4- Reserve a hall" << endl;
+		cout << "5- Cancel a hall reservation" << endl;
 
 		cout << "q- Quit" << endl;
 
-		char choice = getCharInput(3);
+		char inputkey = getCharInput(4);
+		
+		if (inputkey == '2') {	//cancelling a ticket
+			cout << "Enter the event number: ";
+			int event_no=0;
+			cin >> event_no;
+			cout << "Enter the ticket count to cancel: ";
+			int count = 0;
+			cin >> count;
 
-		if (choice == '2') {
+			ticketshandler->cancelTicket(event_no,count);
+
+			cout << "Ticket successfully cancelled" << endl;
+			displayCustomerMenu();
+		}
+		else if (inputkey == '3') {
 			hallhandler->viewHallPlan();
 			displayCustomerMenu();
 		}
-		else if (choice == '3') {	// make a hall reservation
+		else if (inputkey == '4') {	// make a hall reservation
 			cout << "Current Events" << endl;
 			cout << "==============" << endl;
 			eventhandler->getEvents();
@@ -302,15 +315,15 @@ void IOHandler::displayCustomerMenu()
 			getline(cin, name);
 
 			string date;
-			cout << "Enter date in format yyyy-mm-dd - ";
+			cout << "Enter date - ";
 			getline(cin, date);
 
 			string time;
-			cout << "Enter time in 24 hour format(HH-mm) - ";
+			cout << "Enter time (HH-mm) - ";
 			getline(cin, time);
 
 			string hall;
-			cout << "Enter the hall name from following available halls" << endl;
+			cout << "Enter the hall name" << endl;
 			hallhandler->viewAvailableHalls();
 			cout << endl << "Hall- ";
 			getline(cin, hall);
@@ -321,7 +334,7 @@ void IOHandler::displayCustomerMenu()
 				getline(cin, hall);
 
 					// making the payment
-					cout << "Please Make the Payment of $100" << endl;
+					cout << "Make a Payment of $250" << endl;
 					_getch();
 					cout << "Payment Done!" << endl;
 					cout << endl;
@@ -336,7 +349,7 @@ void IOHandler::displayCustomerMenu()
 			}
 			else {
 				// making the payment
-				cout << "Please Make the Payment of $100" << endl;
+				cout << "Make a Payment of $250" << endl;
 				_getch();
 				cout << "Payment Done!" << endl;
 				cout << "Event created and Hall Reserved!" << endl;
@@ -346,7 +359,7 @@ void IOHandler::displayCustomerMenu()
 			}
 			displayCustomerMenu();
 		}
-		else if (choice == '1') {
+		else if (inputkey == '1') {
 			cout << endl<<"Current Events" << endl;
 			cout <<       "==============" << endl;
 			eventhandler->getEvents();
@@ -361,7 +374,7 @@ void IOHandler::displayCustomerMenu()
 			getline(cin, count);
 
 			// making the payment
-			cout << "Please Make the Payment of $100" << endl;
+			cout << "Make a Payment of $250" << endl;
 			_getch();
 			cout << "Payment Done!" << endl;
 			cout << endl;
@@ -370,7 +383,7 @@ void IOHandler::displayCustomerMenu()
 
 			displayCustomerMenu();
 		}
-		else if(choice=='q'){
+		else if(inputkey=='q'){
 			exit(0);
 		}
 		else {
@@ -389,7 +402,7 @@ char IOHandler::getCharInput(int choices)
 				break;
 			}
 			else {
-				cout << "please enter correct number!" << endl;
+				cout << "Enter correct number!" << endl;
 			}
 		}
 		else if (choices == 2) {
@@ -397,7 +410,7 @@ char IOHandler::getCharInput(int choices)
 				break;
 			}
 			else {
-				cout << "please enter correct number!" << endl;
+				cout << "Enter correct number!" << endl;
 			}
 		}
 		else if (choices == 3) {
@@ -405,7 +418,7 @@ char IOHandler::getCharInput(int choices)
 				break;
 			}
 			else {
-				cout << "please enter correct number!" << endl;
+				cout << "Enter correct number!" << endl;
 			}
 		}
 		else if (choices == 4) {
@@ -413,7 +426,15 @@ char IOHandler::getCharInput(int choices)
 				break;
 			}
 			else {
-				cout << "please enter correct number!" << endl;
+				cout << "Enter correct number!" << endl;
+			}
+		}
+		else if (choices == 5) {
+			if (inputkey == '1' || inputkey == '2' || inputkey == '3' || inputkey == '4' || inputkey == '5' || inputkey == 'q' || inputkey == 'b') {
+				break;
+			}
+			else {
+				cout << "Enter correct number!" << endl;
 			}
 		}
 		

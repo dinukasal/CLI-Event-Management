@@ -27,13 +27,13 @@
     <ClInclude Include="EventHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Database.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="IOHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UserHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\chathurandi%27s friend\CLI Event Management\Event Management System\Database.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -76,7 +76,7 @@
     <Text Include="hallstructure.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="tickets_sold.txt">
+    <Text Include="tickets_booked.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

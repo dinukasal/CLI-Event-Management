@@ -1,16 +1,17 @@
 #include "TicketHandler.h"
 
-TicketsHandler::TicketsHandler() {
+TicketsHandler::TicketsHandler(UserHandler *userhandler) {
+	TicketsHandler::userhandler = userhandler;
 	vector <string> data = datahandler.getLines(ticket_file);
-	ticketsvector.clear();
+	tickets_per_event.clear();
 
 	for (int i = 0; i < data.size(); i++)
 	{
-			for (int j = 0; j < data[i].size(); j++) {
-				if (data[i][j] == '-') {
-					ticketsvector.push_back(stoi(data[i].substr(j+1, data[i].size() - j)));
-				}
+		for (int j = 0; j < data[i].size(); j++) {
+			if (data[i][j] == '-') {
+				tickets_per_event.push_back(stoi(data[i].substr(j + 1, data[i].size() - j)));
 			}
+		}
 	}
 }
 
@@ -28,20 +29,20 @@ void TicketsHandler::printSoldTickets()
 {
 	cout << endl << "Sold Tickets" << endl;
 	cout         << "============" << endl;
-	for (int i = 0; i < ticketsvector.size(); i++)
+	for (int i = 0; i < tickets_per_event.size(); i++)
 	{
-		cout << "Event " << i +1<< " >> Sold Count: "<< ticketsvector[i]<<endl;
+		cout << "Event " << i +1<< " >> Sold Count: "<< tickets_per_event[i]<<endl;
 	}
 }
 
 void TicketsHandler::removeTicket(int eventNumber)
 {
-	ticketsvector.erase(ticketsvector.begin()+ eventNumber);
+	tickets_per_event.erase(tickets_per_event.begin()+ eventNumber);
 	datahandler.clearFile(ticket_file);
 	string data="";
-	for (int i = 0; i < ticketsvector.size(); i++)
+	for (int i = 0; i < tickets_per_event.size(); i++)
 	{
-		data += to_string(i + 1) + "-" + to_string(ticketsvector[i])+"\n";
+		data += to_string(i + 1) + "-" + to_string(tickets_per_event[i])+"\n";
 	}
 	datahandler.writeFile(ticket_file, data);
 	reloadTickets();
@@ -50,12 +51,12 @@ void TicketsHandler::removeTicket(int eventNumber)
 void TicketsHandler::reloadTickets()
 {
 	vector <string> data = datahandler.getLines(ticket_file);
-	ticketsvector.clear();
+	tickets_per_event.clear();
 	for (int i = 0; i < data.size(); i++)
 	{
 		for (int j = 0; j < data[i].size(); j++) {
 			if (data[i][j] == '-') {
-				ticketsvector.push_back(stoi(data[i].substr(j + 1, data[i].size() - j)));
+				tickets_per_event.push_back(stoi(data[i].substr(j + 1, data[i].size() - j)));
 			}
 		}
 	}
@@ -71,22 +72,33 @@ void TicketsHandler::printAvailableTickets()
 {
 	cout << endl << "Available Tickets" << endl;
 	cout <<         "=================" << endl;
-	for (int i = 0; i < ticketsvector.size(); i++)
+	for (int i = 0; i < tickets_per_event.size(); i++)
 	{
-		cout << "Event " << i + 1 << "  " << ticketsvector[i]<<" sold" << endl;
+		cout << "Event " << i + 1 << "  " << tickets_per_event[i]<<" sold" << endl;
 	}
 }
 
 void TicketsHandler::buyTicket(int eventNo,int amount)
 {
-	ticketsvector[eventNo] += amount;
+	tickets_per_event[eventNo] += amount;
 	datahandler.clearFile(ticket_file);
 	string data = "";
-	for (int i = 0; i < ticketsvector.size(); i++)
+	for (int i = 0; i < tickets_per_event.size(); i++)
 	{
-		data += to_string(i + 1) + "-" + to_string(ticketsvector[i]) + "\n";
+		data += to_string(i + 1) + "-" + to_string(tickets_per_event[i]) + "\n";
 	}
 	datahandler.writeFile(ticket_file, data);
 	reloadTickets();
+}
+
+void TicketsHandler::cancelTicket(int eventNo,int count)
+{
+	tickets_per_event[eventNo]-=count;
+	datahandler.clearFile(ticket_file);
+
+	for (int i = 0; i < tickets_per_event.size(); i++) {
+		datahandler.appendToFile(events_file,to_string(tickets_per_event[i]));
+	}
+
 }
 

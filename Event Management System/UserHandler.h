@@ -17,6 +17,7 @@ private:
 	int adminCount;
 	User customersarray[500];
 	int customerCount;
+	int loggedUser;
 public:
 	UserHandler();
 	void getAdmins(string *,int);
@@ -26,6 +27,7 @@ public:
 	bool checkUser(string username, string password, int userType);
 	int getCount(int userType);
 	void addUsers(string * dataset,int length,User* userSet,int userType);
+	int getLoggedUser();
 };
 
 #endif // 

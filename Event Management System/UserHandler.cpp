@@ -3,6 +3,7 @@
 UserHandler::UserHandler() {
 	adminCount = 0;
 	customerCount = 0;
+	loggedUser = -1;
 }
 
 void UserHandler::addUsers(string * dataset, int length, User* userSet, int userType)
@@ -22,6 +23,10 @@ void UserHandler::addUsers(string * dataset, int length, User* userSet, int user
 			customerCount++;
 		}
 	}
+}
+int UserHandler::getLoggedUser()
+{
+	return loggedUser;
 }
 void UserHandler::getAdmins(string * dataset,int count)
 {
@@ -46,6 +51,7 @@ bool UserHandler::checkUser(string username,string password,int userType) {
 	if (userType == 1) {	//user type admin
 		for (int i = 0;i < adminCount;i++) {
 			if (adminsarray[i].name == username && adminsarray[i].password == password) {
+				loggedUser = i;
 				return true;
 			}
 		}
@@ -53,6 +59,7 @@ bool UserHandler::checkUser(string username,string password,int userType) {
 	else {
 		for (int i = 0;i < customerCount;i++) {
 			if (customersarray[i].name == username && customersarray[i].password == password) {
+				loggedUser = i;
 				return true;
 			}
 		}
