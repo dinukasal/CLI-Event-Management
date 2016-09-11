@@ -1,0 +1,15 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Event Management System.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  HallManager.cpp
+c:\users\dinuka\documents\projects\chathurandi pathiranage\event management system\event management system\hallmanager.cpp(15): warning C4018: '<': signed/unsigned mismatch
+c:\users\dinuka\documents\projects\chathurandi pathiranage\event management system\event management system\hallmanager.cpp(48): warning C4018: '<': signed/unsigned mismatch
+c:\users\dinuka\documents\projects\chathurandi pathiranage\event management system\event management system\hallmanager.cpp(68): warning C4018: '<': signed/unsigned mismatch
+c:\users\dinuka\documents\projects\chathurandi pathiranage\event management system\event management system\hallmanager.cpp(78): warning C4018: '<': signed/unsigned mismatch
+c:\users\dinuka\documents\projects\chathurandi pathiranage\event management system\event management system\hallmanager.cpp(80): warning C4018: '<': signed/unsigned mismatch
+c:\users\dinuka\documents\projects\chathurandi pathiranage\event management system\event management system\hallmanager.cpp(87): warning C4018: '<': signed/unsigned mismatch
+c:\users\dinuka\documents\projects\chathurandi pathiranage\event management system\event management system\hallmanager.cpp(89): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Compiling...
+  main.cpp
+  InterfaceManager.cpp
+  Generating Code...
+  Event Management System.vcxproj -> C:\Users\Dinuka\Documents\Projects\chathurandi pathiranage\Event Management System\Debug\event_management_system.exe

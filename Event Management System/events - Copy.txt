@@ -1,0 +1,41 @@
+// events file -- format
+// date
+// time
+// event name
+// hall
+// events are numbered in the order they have written here
+
+2016-08-21 
+10:30 
+Opening Ceremony
+A1
+
+2016-08-22 
+11:30 
+Registrations
+B1
+
+2016-08-23
+12:00 
+Lunch Time
+C1
+
+016-08-29
+12:55
+sala
+A4
+
+016-23-45
+12:54
+sala
+D2
+
+132
+121
+sala
+B4
+
+12321
+dad
+sala
+D5

@@ -1,0 +1,6 @@
+#define ticket_file "sold_tickets.txt"
+#define admin_file "admins.txt"
+#define customers_file "customers.txt"
+#define events_file "eventlist.txt"
+#define reservations_file "reservations.txt"
+#define hallplan_file "hallplan.txt"
