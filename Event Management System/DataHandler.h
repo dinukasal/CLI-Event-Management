@@ -7,7 +7,7 @@
 #include <sys/stat.h>
 #include <vector>
 
-#include "Files.h"
+#include "Database.h"
 
 using namespace std;
 class DataHandler {

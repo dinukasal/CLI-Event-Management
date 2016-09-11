@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Users.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="HallHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -34,6 +31,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IOHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -15,11 +15,11 @@ void IOHandler::displayMenu(int number)
 	case 0:
 		cout << "Event System" << endl;
 		cout << "============" << endl << endl;
-		cout << "1: View Events" << endl;
-		cout << "2: Login Administrator" << endl;
-		cout << "3: Login Customer" << endl;
-		cout << "press q to exit" << endl;
-		cout << "press b to go back" << endl;
+		cout << "1- View Events" << endl;
+		cout << "2- Login Administrator" << endl;
+		cout << "3- Login Customer" << endl;
+		cout << "q- exit" << endl;
+		cout << "b- go back" << endl;
 		cout << endl;
 
 		getInput();
@@ -39,7 +39,7 @@ void IOHandler::getInput()
 {
 	char choice = 0;
 	while (true) {
-		choice = _getch();	// from conio.h file
+		choice = _getch();	
 		if (choice == '1' || choice == '2' || choice == '3' || choice == 'q' || choice == 'b') {
 			break;
 		}
@@ -51,8 +51,7 @@ void IOHandler::getInput()
 	if (isdigit(choice) && (choice == '2' || choice == '3')) {
 		login(choice);
 	}
-	else if (choice == '1') { // key --> 3
-							  //display events
+	else if (choice == '1') { 
 		eventhandler->getEvents();
 		displayMenu(0);
 	}
@@ -73,15 +72,11 @@ void IOHandler::login(char choice)
 		case '2':
 			cout << "Administrator login" << endl;
 			cout << "===================" << endl;
-			cout << "Username:";
+			cout << "Username-";
 			cin >> username;
-			//getline(cin, username);
-			//username = cin.get();
-			cout << "Passsword:";
-			//getline(cin, username);
+			cout << "Passsword-";
 			cin >> password;
 
-			//password = getPassword();
 
 			if (users->checkUser(username, password, 1)) {
 				cout << endl<<"logged in!" << endl;
@@ -98,11 +93,9 @@ void IOHandler::login(char choice)
 		case '3':
 			cout << "Customer login" << endl;
 			cout << "=============" << endl;
-			cout << "Username:";
+			cout << "Username-";
 			getline(cin, username);
-			cout << "Password:";
-
-			//password = getPassword();
+			cout << "Password-";
 
 			getline(cin, password);
 
@@ -129,12 +122,12 @@ void IOHandler::displayAdminMenu()
 	cout << endl <<"Administrator Dashboard" << endl;
 	cout << "==============" << endl;
 
-	cout << "1: Manage Events " << endl;
-	cout << "2: Manage Halls" << endl;
-	cout << "3: View Events" << endl;
-	cout << "4: View Sold Tickets" << endl;
+	cout << "1- Manage Events " << endl;
+	cout << "2- Manage Halls" << endl;
+	cout << "3- View Events" << endl;
+	cout << "4- View Sold Tickets" << endl;
 
-	cout << "q: Quit" << endl;
+	cout << "q- Quit" << endl;
 
 	char choice = getCharInput(4);
 
@@ -143,36 +136,36 @@ void IOHandler::displayAdminMenu()
 		ticketshandler->printSoldTickets();
 
 		cout << endl;
-		cout << "1: Create an event" << endl;
-		cout << "2: Delete an event" << endl;
-		cout << "3: Delete All events" << endl;
+		cout << "1- Create an event" << endl;
+		cout << "2- Delete an event" << endl;
+		cout << "3- Delete All events" << endl;
 
 		char choice = getCharInput(3);
 
 		if (choice == '1') {
-			cout << "Enter Event Name: ";
+			cout << "Enter Event Name- ";
 			string name;
 			//cin.get();
 			getline(cin, name);
 
 			string date;
-			cout << "Enter date in format yyyy-mm-dd : ";
+			cout << "Enter date - ";
 			//cin.get();
 			getline(cin, date);
 
 			string time;
-			cout << "Enter time in 24 hour format(HH:mm) : ";
+			cout << "Enter time (HH:mm) - ";
 			getline(cin, time);
 
 			string hall;
-			cout << "Enter the hall name from following available halls" << endl;
+			cout << "Enter the hall name " << endl;
 			hallhandler->viewAvailableHalls();
-			cout << endl << "Hall: ";
+			cout << endl << "Hall- ";
 			getline(cin, hall);
 
 			if (!hallhandler->reserve(hall)) {
 				cout << "Enter correct Hall!!" << endl;
-				cout << endl << "Hall: ";
+				cout << endl << "Hall- ";
 				getline(cin, hall);
 				if (hallhandler->reserve(hall)) {
 					eventhandler->addEvent(name, date, time, hall,true);
@@ -190,7 +183,7 @@ void IOHandler::displayAdminMenu()
 		}
 		else if (choice == '2') {	// delete an event
 			cin.ignore();
-			cout << "Enter Event number :";
+			cout << "Enter Event number -";
 			int num = 0;
 			string input="";
 			cin.get();
@@ -200,9 +193,9 @@ void IOHandler::displayAdminMenu()
 				num = stoi(input);
 			}
 			catch (exception* e) {
-				cout << "Please re-enter event number: ";
+				cout << "Please re-enter event number- ";
 				getline(cin, input);
-				cout << "input: "<<input << endl;
+				cout << "input- "<<input << endl;
 				if (input != "") {
 					num = stoi(input);
 				}
@@ -284,11 +277,11 @@ void IOHandler::displayCustomerMenu()
 	if (isloggedIn == true) {
 		cout << endl <<"Customer Dashboard" << endl;
 		cout <<        "==================" << endl;
-		cout << "1: Buy a Ticket" << endl;
-		cout << "2: View Hall Plan and reservations" << endl;
-		cout << "3: Make a Hall reservation" << endl;
+		cout << "1- Buy a Ticket" << endl;
+		cout << "2- View Hall Plan and reservations" << endl;
+		cout << "3- Make a Hall reservation" << endl;
 
-		cout << "q: Quit" << endl;
+		cout << "q- Quit" << endl;
 
 		char choice = getCharInput(3);
 
@@ -304,27 +297,27 @@ void IOHandler::displayCustomerMenu()
 			cout << "Available Halls\n===============" << endl;
 			hallhandler->viewAvailableHalls();
 
-			cout << "Enter Event Name: ";
+			cout << "Enter Event Name- ";
 			string name;
 			getline(cin, name);
 
 			string date;
-			cout << "Enter date in format yyyy-mm-dd : ";
+			cout << "Enter date in format yyyy-mm-dd - ";
 			getline(cin, date);
 
 			string time;
-			cout << "Enter time in 24 hour format(HH:mm) : ";
+			cout << "Enter time in 24 hour format(HH-mm) - ";
 			getline(cin, time);
 
 			string hall;
 			cout << "Enter the hall name from following available halls" << endl;
 			hallhandler->viewAvailableHalls();
-			cout << endl << "Hall: ";
+			cout << endl << "Hall- ";
 			getline(cin, hall);
 
 			if (!hallhandler->reserve(hall)) {
 				cout << "Enter correct Hall!!" << endl;
-				cout << endl << "Hall: ";
+				cout << endl << "Hall- ";
 				getline(cin, hall);
 
 					// making the payment
@@ -359,11 +352,11 @@ void IOHandler::displayCustomerMenu()
 			eventhandler->getEvents();
 			ticketshandler->printAvailableTickets();
 
-			cout << "Enter event no: ";
+			cout << "Enter event no- ";
 			string eventno;
 			getline(cin, eventno);
 
-			cout << "Enter needed ticket count: ";
+			cout << "Enter needed ticket count- ";
 			string count;
 			getline(cin, count);
 
@@ -388,11 +381,11 @@ void IOHandler::displayCustomerMenu()
 
 char IOHandler::getCharInput(int choices)
 {
-	char choice = 0;
+	char inputkey = 0;
 	while (true) {
-		choice = _getch();
+		inputkey = _getch();
 		if (choices == 1) {
-			if (choice == '1' || choice == 'q' || choice == 'b') {
+			if (inputkey == '1' || inputkey == 'q' || inputkey == 'b') {
 				break;
 			}
 			else {
@@ -400,7 +393,7 @@ char IOHandler::getCharInput(int choices)
 			}
 		}
 		else if (choices == 2) {
-			if (choice == '1' || choice == '2' || choice == 'q' || choice == 'b') {
+			if (inputkey == '1' || inputkey == '2' || inputkey == 'q' || inputkey == 'b') {
 				break;
 			}
 			else {
@@ -408,7 +401,7 @@ char IOHandler::getCharInput(int choices)
 			}
 		}
 		else if (choices == 3) {
-			if (choice == '1' || choice == '2' || choice == '3' || choice == 'q' || choice=='b') {
+			if (inputkey == '1' || inputkey == '2' || inputkey == '3' || inputkey == 'q' || inputkey=='b') {
 				break;
 			}
 			else {
@@ -416,7 +409,7 @@ char IOHandler::getCharInput(int choices)
 			}
 		}
 		else if (choices == 4) {
-			if (choice == '1' || choice == '2' || choice == '3' || choice == 'q' || choice == 'b' || choice=='4') {
+			if (inputkey == '1' || inputkey == '2' || inputkey == '3' || inputkey == 'q' || inputkey == 'b' || inputkey=='4') {
 				break;
 			}
 			else {
@@ -425,7 +418,7 @@ char IOHandler::getCharInput(int choices)
 		}
 		
 	}
-	return choice;
+	return inputkey;
 }
 
 void IOHandler::setLoggedIn()

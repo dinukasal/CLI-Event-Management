@@ -149,7 +149,7 @@
     <ClInclude Include="HallHandler.h" />
     <ClInclude Include="IOHandler.h" />
     <ClInclude Include="TicketHandler.h" />
-    <ClInclude Include="Users.h" />
+    <ClInclude Include="UserHandler.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataHandler.cpp" />

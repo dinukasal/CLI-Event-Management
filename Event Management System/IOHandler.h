@@ -5,7 +5,7 @@
 #include <conio.h> //_getch() fn
 #include <Windows.h>
 #include <cstdlib>
-#include "Users.h"
+#include "UserHandler.h"
 #include "HallHandler.h"
 #include "TicketHandler.h"
 #include "Database.h"

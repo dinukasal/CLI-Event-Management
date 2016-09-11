@@ -1,10 +1,4 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (event_management_system.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  UserHandler.cpp
-c:\users\dinuka\documents\projects\chathurandi's friend\cli event management\event management system\userhandler.cpp(11): warning C4101: 'users': unreferenced local variable
-  InterfaceHandler.cpp
-c:\users\dinuka\documents\projects\chathurandi's friend\cli event management\event management system\interfacehandler.cpp(202): warning C4101: 'e': unreferenced local variable
-  DataHandler.cpp
-c:\users\dinuka\documents\projects\chathurandi's friend\cli event management\event management system\datahandler.cpp(197): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
-c:\users\dinuka\documents\projects\chathurandi's friend\cli event management\event management system\datahandler.cpp(33): warning C4715: 'DataHandler::fetchData': not all control paths return a value
+  IOHandler.cpp
+c:\users\dinuka\documents\projects\chathurandi's friend\cli event management\event management system\iohandler.cpp(195): warning C4101: 'e': unreferenced local variable
   Event Management System.vcxproj -> C:\Users\Dinuka\Documents\Projects\chathurandi's friend\CLI Event Management\x64\Debug\cli_event_management.exe
